@@ -60,5 +60,5 @@ Service. This command downloads and parses the WSDL and directs the output to a
 file for reference later on.
 
 ```
-(env) PS C:\> python -m zeep https://cssandbox.dealcloud.com/Services/v2/DCDataService.svc?singleWsdl > service.wsdl
+(env) PS C:\> python -m zeep https://yoursite.dealcloud.com/Services/v2/DCDataService.svc?singleWsdl > service.wsdl
 ```
