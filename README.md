@@ -11,7 +11,7 @@ successfully with Python versions 3.6 and higher.
 
 To get started on Windows, create your virtual environment and install the
 package by cloning this repository and running the setup script. See the 
-[Installation Notes](https://github.com/holtjp/dealcloud-python#installation-notes)
+[Installation Notes](https://github.com/holtjp/dealcloud-python#installation-notes-for-linux-users)
 if you are a Linux user and the setup script raises exceptions.
 
 ```
