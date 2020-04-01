@@ -1,0 +1,15 @@
+# Ignore VS Code settings
+.vscode/
+
+# Ignore GNU Emacs backup files
+*~
+
+# Ignore virtual environments
+env/
+venv/
+
+# Ignore eggs, builds, and caches
+*.egg-info/
+dist/
+build/
+*pycache*
