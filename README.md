@@ -49,3 +49,16 @@ you can use this line on a Debian-based distribution:
 ```bash
 sudo apt-get install libxml2-dev libxslt-dev
 ```
+
+
+## Inspecting the WSDL
+
+The Zeep packages provides a script to download and parse Web Services
+Description Language (WSDL) Documents. It's recommended that you use this tool
+to obtain an overview of the types and methods provided by the DealCloud Web
+Service. This command downloads and parses the WSDL and directs the output to a
+file for reference later on.
+
+```
+(env) PS C:\> python -m zeep https://cssandbox.dealcloud.com/Services/v2/DCDataService.svc?singleWsdl > service.wsdl
+```
