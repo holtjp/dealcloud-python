@@ -6,16 +6,21 @@ the Deal list
 import getpass as gp
 import sys
 
+import requests
+
 import dealcloud as dc
 
 
 # Create an instance of a client for the DealCloud Data Service and a service
 # proxy
-client = dc.create_client(
-    email=input('Email: '),
-    password=gp.getpass(),
-    hostname=input('Hostname: ')
-)
+try:
+    client = dc.create_client(
+        email=input('Email: '), password=gp.getpass(),
+        hostname=input('Hostname: ')
+    )
+except requests.exceptions.ConnectionError:
+    print('Failed to connect to the DealCloud Web Service.')
+    sys.exit()
 service = dc.bind_service(client)
 
 
@@ -41,11 +46,7 @@ except IndexError:
 # Find all of the fields on all of the lists in a site, get the ones on the
 # Deal list
 fields = service.GetFields()
-try:
-    deal_fields = list(filter(lambda f: f.EntryListId == deal_list.Id, fields))
-except IndexError:
-    print('Fields could not be found.')
-    sys.exit()
+deal_fields = list(filter(lambda f: f.EntryListId == deal_list.Id, fields))
 
 
 # Create a type factory to access the types provided by the service
@@ -59,11 +60,8 @@ for f in deal_fields:
     p = factory.DCPull(EntryId=deal_entry.Id, FieldId=f.Id)
     requests.DCPull.append(p)
 response = service.ProcessDCPull(
-    requests=requests,
-    resolveReferenceUrls=True,
-    fillExtendedData=True
+    requests=requests, resolveReferenceUrls=True, fillExtendedData=True
 )
-
 
 # Iterate over your responses and print them to the console
 for r in response:
