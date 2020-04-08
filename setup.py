@@ -9,5 +9,6 @@ setup(
     author="DealCloud, Inc.",
     author_email="support@dealcloud.com",
     description="A Python client for the DealCloud Data Service",
-    keywords="dealcloud soap client example"
+    keywords="dealcloud soap client example",
+    license='BSD 3-Clause License'
 )
