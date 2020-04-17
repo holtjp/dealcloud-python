@@ -10,7 +10,8 @@ def create_client(
     hostname will be the component of your site's domain before dealcloud.com.
     For example, if your site is "https://equityfirm.dealcloud.com", then your
     hostname is "equityfirm".
-    Server can be "eu" to indicate an EU site, otherwise it defaults to "com" for US sites.
+    Server can be "eu" to indicate an EU site, otherwise it defaults to "com"
+    for US sites.
     """
     url = f'https://{hostname}.dealcloud.{server}/Services/v2/' \
         'DCDataService.svc?singleWsdl'
